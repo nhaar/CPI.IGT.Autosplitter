@@ -17,11 +17,6 @@ init
 	vars.starttime = false;
 }
 
-update
-{
-	print(vars.starttime.ToString());
-}
-
 start
 {
 	if(vars.startref != current.startVar)
