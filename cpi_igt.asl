@@ -8,7 +8,6 @@ state("ClubPenguinIsland")
 startup
 {
     refreshRate = 60;
-	print("Test");
 }
 
 init
