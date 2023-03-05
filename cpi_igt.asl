@@ -1,54 +1,20 @@
 state("ClubPenguinIsland")
 {
-    int load : "mono.dll", 0x001F56AC, 0x80, 0xFA0;
-	int splitVar : "mono.dll", 0x0020913C, 0x23C, 0x9C, 0x0, 0x8C, 0x158, 0x28;
-	int startVar: "mono.dll", 0x001F56AC, 0x80, 0xFA4;
+	int load : "mono.dll", 0x001F76E0, 0x0, 0xA8, 0x4, 0x8C, 0x1D4, 0x28;
+	int splitVar : "mono.dll", 0x001F50AC, 0x14, 0x60, 0xD0, 0x274, 0x4, 0x64, 0x28;
 }
 
 startup
 {
-    refreshRate = 60;
-}
-
-init
-{
-	vars.splitref = current.splitVar;
-	vars.startref = current.startVar;
-	vars.starttime = false;
-}
-
-start
-{
-	if(vars.startref != current.startVar)
-	{
-		vars.starttime = true;
-		vars.startref = current.startVar;
-	}
-	if (vars.starttime == true && current.load == 420420)
-	{
-		vars.starttime = false;
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-split
-{
-	if(vars.splitref != current.splitVar)
-	{
-		vars.splitref = current.splitVar;
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	refreshRate = 200;
 }
 
 isLoading
 {
-	return current.load == 6969;
+ 	return current.load == 6969;
+}
+
+split
+{
+	return old.splitVar != current.splitVar;
 }
